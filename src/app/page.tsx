@@ -9,6 +9,8 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 
+import { RecipeInfo } from '@/components/recipe-info';
+
 import breadImage from '../assets/images/bread.jpg';
 
 export default function RecipeDetail() {
@@ -33,21 +35,7 @@ export default function RecipeDetail() {
               this bread delicious — it&apos;s versatile.
             </Typography>
 
-            {/* Recipe Info */}
-            <Stack direction="row" spacing={3} mt={2} mb={3}>
-              <Box>
-                <Typography variant="subtitle2">PREP</Typography>
-                <Typography>10 mins</Typography>
-              </Box>
-              <Box>
-                <Typography variant="subtitle2">BAKE</Typography>
-                <Typography>1 hr to 1 hr 15 mins</Typography>
-              </Box>
-              <Box>
-                <Typography variant="subtitle2">TOTAL</Typography>
-                <Typography>1 hr 10 mins</Typography>
-              </Box>
-            </Stack>
+            <RecipeInfo />
 
             {/* Yield */}
             <Box mb={2}>
