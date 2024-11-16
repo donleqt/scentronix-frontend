@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Typography, Button, Grid, Stack, Container } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Button,
+  Grid2,
+  Stack,
+  Container,
+} from '@mui/material';
 import Image from 'next/image';
 
 import breadImage from '../assets/images/bread.jpg';
@@ -8,16 +15,16 @@ export default function RecipeDetail() {
   return (
     <Container sx={{ mt: 4 }}>
       <Box>
-        <Grid container spacing={4}>
+        <Grid2 container spacing={4}>
           {/* Left Column */}
-          <Grid item xs={12} md={6}>
+          <Grid2 size={{ xs: 12, md: 6 }}>
             {/* Title */}
             <Typography variant="h3" component="h1" gutterBottom>
               Whole-Grain Banana Bread
             </Typography>
 
             {/* Description */}
-            <Typography variant="body1" paragraph>
+            <Typography variant="body1" component="p">
               This one-bowl banana bread — our 2018 Recipe of the Year — uses
               the simplest ingredients but is incredibly moist and flavorful.
               While the recipe calls for a 50/50 mix of flours (all-purpose and
@@ -57,10 +64,10 @@ export default function RecipeDetail() {
                 Print
               </Button>
             </Stack>
-          </Grid>
+          </Grid2>
 
           {/* Right Column */}
-          <Grid item xs={12} md={6}>
+          <Grid2 size={{ xs: 12, md: 6 }}>
             <Box>
               <Image
                 src={breadImage}
@@ -68,8 +75,8 @@ export default function RecipeDetail() {
                 layout="responsive"
               />
             </Box>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
       </Box>
     </Container>
   );
