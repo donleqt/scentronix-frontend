@@ -29,6 +29,14 @@
         "selector": "ExportDefaultDeclaration",
         "message": "Use named exports instead of default exports."
       }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          "@mui/*/*/*"
+        ]
+      }
     ]
   },
   "overrides": [
