@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 
-import { RecipeInfo } from '@/components/recipe-info';
+import { RecipeInfo } from '@/core/components/recipe-info';
 
 import breadImage from '../assets/images/bread.jpg';
 

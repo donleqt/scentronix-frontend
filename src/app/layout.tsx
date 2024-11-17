@@ -6,9 +6,9 @@ import { Roboto } from '@next/font/google';
 
 import './globals.css';
 
-import { Header } from '@/components/header';
+import { Header } from '@/core/components/header/header';
 import { theme } from '@/libs/mui/theme';
-import { AppBreadcrumbs } from '@/components/app-breadcrumbs';
+import { AppBreadcrumbs } from '@/core/components/app-breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Create Next App',

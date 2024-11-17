@@ -42,7 +42,7 @@
   "overrides": [
     {
       "files": [
-        "app/**",
+        "!src/**",
         "src/app/**"
       ],
       "rules": {
