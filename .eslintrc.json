@@ -1,13 +1,16 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "next/typescript"
+    "next/typescript",
+    "prettier"
   ],
   "plugins": [
     "react",
-    "import"
+    "import",
+    "prettier"
   ],
   "rules": {
+    "prettier/prettier": "error",
     "react/self-closing-comp": "error",
     "import/order": [
       "error",
