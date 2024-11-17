@@ -4,7 +4,7 @@ import { AppBar, Box, Container, Toolbar } from '@mui/material';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import logo from '@/assets/images/logo.png';
 import { APP_ROUTES } from '@/core/constants/routes';
@@ -17,15 +17,24 @@ import { HeaderLink } from './header-link';
 const LOGO_SIZE = 150;
 
 export const Header = () => {
+  const hideTimeout = useRef<NodeJS.Timeout>();
   const pathname = usePathname();
   const [subMenuLinks, setSubMenuLinks] = useState<RouteLink[]>([]);
 
   const handleMouseEnter = (links: RouteLink[]) => {
+    clearTimeout(hideTimeout.current);
     setSubMenuLinks(links);
   };
 
   const handleMouseLeave = () => {
-    setSubMenuLinks([]);
+    clearTimeout(hideTimeout.current);
+    hideTimeout.current = setTimeout(() => setSubMenuLinks([]), 500);
+  };
+
+  const handleSubMenuMouseEnter = () => {
+    if (hideTimeout.current) {
+      clearTimeout(hideTimeout.current);
+    }
   };
 
   return (
@@ -65,7 +74,12 @@ export const Header = () => {
         </Toolbar>
       </Container>
 
-      <HeaderSubMenu links={subMenuLinks} marginLeft={LOGO_SIZE + 25} />
+      <Box
+        onMouseEnter={handleSubMenuMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <HeaderSubMenu links={subMenuLinks} marginLeft={LOGO_SIZE + 25} />
+      </Box>
     </AppBar>
   );
 };

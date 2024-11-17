@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { RecipeDetail } from '@/features/recipes/components/recipe-detail';
 import { fetchClient } from '@/libs/api/fetch-client';
+import { Breadcrumbs } from '@/core/components/breadcrumbs/breadcrumbs';
 
 async function getRecipe(id: string) {
   const { data: recipe } = await fetchClient.GET('/recipes/{id}', {
@@ -36,7 +37,8 @@ export default async function RecipeDetailPage({
   const recipe = await getRecipe(id);
 
   return (
-    <Container sx={{ mt: 4 }}>
+    <Container>
+      <Breadcrumbs />
       <RecipeDetail recipe={recipe} />
     </Container>
   );

@@ -8,8 +8,6 @@ export async function GET(
 ) {
   const { id } = await params;
 
-  console.log('id:', id);
-
   if (!id) {
     return NextResponse.json({ status: 404 });
   }

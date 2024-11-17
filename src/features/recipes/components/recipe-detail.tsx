@@ -10,7 +10,6 @@ type RecipeDetailProps = {
 };
 
 export function RecipeDetail({ recipe }: RecipeDetailProps) {
-  console.log(recipe);
   return (
     <Grid2 container spacing={4}>
       {/* Left Column */}

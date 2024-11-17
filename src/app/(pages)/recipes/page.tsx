@@ -1,6 +1,7 @@
 import { Container } from '@mui/material';
 
 import { fetchClient } from '@/libs/api/fetch-client';
+import { Breadcrumbs } from '@/core/components/breadcrumbs/breadcrumbs';
 
 async function fetchRecipes() {
   return fetchClient.GET('/recipes');
@@ -14,17 +15,16 @@ export default async function RecipiesPage() {
   }
 
   return (
-    <section>
-      <Container>
-        <h1>Recipes</h1>
-        <ul>
-          {recipes.map((recipe) => (
-            <li key={recipe.id}>
-              <a href={`/recipes/${recipe.id}`}>{recipe.title}</a>
-            </li>
-          ))}
-        </ul>
-      </Container>
-    </section>
+    <Container>
+      <Breadcrumbs />
+      <h1>Recipes</h1>
+      <ul>
+        {recipes.map((recipe) => (
+          <li key={recipe.id}>
+            <a href={`/recipes/${recipe.id}`}>{recipe.title}</a>
+          </li>
+        ))}
+      </ul>
+    </Container>
   );
 }

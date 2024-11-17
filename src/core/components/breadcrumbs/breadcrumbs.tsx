@@ -1,6 +1,11 @@
 'use client';
 
-import { Link, Breadcrumbs as MuiBreadcrumbs, Typography } from '@mui/material';
+import NextLink from 'next/link';
+import {
+  Link as MuiLink,
+  Breadcrumbs as MuiBreadcrumbs,
+  Typography,
+} from '@mui/material';
 
 import { useBreadcrumbsPath } from './useBreadcrumbsPath';
 
@@ -8,12 +13,18 @@ export function Breadcrumbs() {
   const items = useBreadcrumbsPath();
 
   return (
-    <MuiBreadcrumbs sx={{ mt: 3 }} aria-label="breadcrumb">
+    <MuiBreadcrumbs sx={{ my: 3 }} aria-label="breadcrumb">
       {items.map((item, index) =>
         item.href ? (
-          <Link key={index} underline="hover" color="inherit" href={item.href}>
+          <MuiLink
+            key={index}
+            underline="hover"
+            color="inherit"
+            href={item.href}
+            component={NextLink}
+          >
             {item.label}
-          </Link>
+          </MuiLink>
         ) : (
           <Typography key={index} sx={{ color: 'text.primary' }}>
             {item.label}

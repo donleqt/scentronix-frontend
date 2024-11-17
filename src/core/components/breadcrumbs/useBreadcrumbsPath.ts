@@ -16,5 +16,5 @@ export function useBreadcrumbsPath() {
     return [{ label: 'Home', href: '/' }, ...breadcrumbItems];
   }, [pathname]);
 
-  return items;
+  return items.slice(0, 2);
 }
