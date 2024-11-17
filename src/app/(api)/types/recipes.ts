@@ -1,4 +1,4 @@
-export type Recipe = {
+export interface Recipe {
   id: string;
   title: string;
   description: string;
@@ -8,4 +8,4 @@ export type Recipe = {
     duration: string;
     description: string;
   }[];
-};
+}

@@ -1,0 +1,10 @@
+{
+  "entryFile": "",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/app/(api)/**/*.ts"],
+  "spec": {
+    "outputDirectory": "src/app/(api)/docs",
+    "specVersion": 2,
+    "basePath": "/api"
+  }
+}

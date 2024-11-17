@@ -2,7 +2,7 @@ import { RouteLink } from '../types/routing';
 import { APP_ROUTES } from './routes';
 
 export const HEADER_LINKS: RouteLink[] = [
-  { label: 'Shop', route: APP_ROUTES.SHOP },
+  { label: 'Shop', route: APP_ROUTES.HOME },
   {
     label: 'Recipes',
     route: APP_ROUTES.RECIPES,

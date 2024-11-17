@@ -1,1 +1,2 @@
 npm test
+npm run api-spec && git add . **swagger.json

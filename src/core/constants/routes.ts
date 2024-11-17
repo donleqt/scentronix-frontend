@@ -1,6 +1,5 @@
 export enum APP_ROUTES {
   HOME = '/',
-  SHOP = '/shop',
   RECIPES = '/recipes',
   RECIPE_COLLECTIONS = '/recipes/collections',
   RECIPE_CATEGORIES = '/recipes/categories',
