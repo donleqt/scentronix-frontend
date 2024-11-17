@@ -10,8 +10,8 @@ import { APP_ROUTES } from '@/core/constants/routing';
 import { HEADER_LINKS } from '@/core/constants/ui';
 import { RouteLink } from '@/core/types/routing';
 
-import { HeaderLink } from './header-link';
 import { HeaderSubMenu } from './header-sub-menu';
+import { HeaderLink } from './header-link';
 
 const LOGO_SIZE = 150;
 
