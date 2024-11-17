@@ -1,70 +1,43 @@
-import React from 'react';
-import {
-  Box,
-  Typography,
-  Button,
-  Grid2,
-  Stack,
-  Container,
-} from '@mui/material';
-import Image from 'next/image';
+import { Container } from '@mui/material';
+import { notFound } from 'next/navigation';
 
-import { RecipeInfo } from '@/core/components/recipe-info';
+import { RecipeDetail } from '@/features/recipes/components/recipe-detail';
+import { fetchClient } from '@/libs/api/fetch-client';
 
-export default function RecipeDetail() {
+async function getRecipe(id: string) {
+  const { data: recipe } = await fetchClient.GET('/recipes/{id}', {
+    params: { path: { id } },
+  });
+
+  if (!recipe) notFound();
+
+  return recipe;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const recipe = await getRecipe(id);
+
+  return {
+    title: recipe.title,
+  };
+}
+
+export default async function RecipeDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const recipe = await getRecipe(id);
+
   return (
     <Container sx={{ mt: 4 }}>
-      <Box>
-        <Grid2 container spacing={4}>
-          {/* Left Column */}
-          <Grid2 size={{ xs: 12, md: 6 }}>
-            {/* Title */}
-            <Typography variant="h3" component="h1" gutterBottom>
-              Whole-Grain Banana Bread
-            </Typography>
-
-            {/* Description */}
-            <Typography variant="body1" component="p">
-              This one-bowl banana bread — our 2018 Recipe of the Year — uses
-              the simplest ingredients but is incredibly moist and flavorful.
-              While the recipe calls for a 50/50 mix of flours (all-purpose and
-              whole wheat), we often make the bread 100% whole wheat, and
-              honestly? No one can tell, it&apos;s that good! And not only is
-              this bread delicious — it&apos;s versatile.
-            </Typography>
-
-            <RecipeInfo />
-
-            {/* Yield */}
-            <Box mb={2}>
-              <Typography variant="subtitle2">YIELD</Typography>
-              <Typography>1 loaf, 12 generous servings</Typography>
-            </Box>
-
-            {/* Buttons */}
-            <Stack direction="row" justifyContent="flex-end" spacing={2}>
-              <Button variant="outlined" color="secondary">
-                Save Recipe
-              </Button>
-              <Button variant="outlined" color="secondary">
-                Print
-              </Button>
-            </Stack>
-          </Grid2>
-
-          {/* Right Column */}
-          <Grid2 size={{ xs: 12, md: 6 }}>
-            <Box position="relative" width="100%" height={0} paddingTop="75%">
-              <Image
-                src="/bread.jpg"
-                alt="Whole-Grain Banana Bread"
-                layout="fill"
-                objectFit="cover"
-              />
-            </Box>
-          </Grid2>
-        </Grid2>
-      </Box>
+      <RecipeDetail recipe={recipe} />
     </Container>
   );
 }

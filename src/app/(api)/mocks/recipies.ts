@@ -1,12 +1,12 @@
 import { faker } from '@faker-js/faker';
 
-import { Recipe } from '../api/types/recipes';
+import { Recipe } from '../types/recipes';
 
-const generateMockRecipes = (count: number): Recipe[] => {
+export const generateMockRecipes = (count: number): Recipe[] => {
   return new Array(count).fill(null).map(() => ({
     id: faker.string.uuid(),
     title: faker.lorem.words(3),
-    description: faker.lorem.sentences(2),
+    description: faker.lorem.paragraph(2),
     yield: `${faker.number.int({ min: 1, max: 10 })} servings`,
     imageUrl: faker.image.url(),
     steps: Array.from(
@@ -18,5 +18,3 @@ const generateMockRecipes = (count: number): Recipe[] => {
     ),
   }));
 };
-
-export const mockRecipes = generateMockRecipes(10);
