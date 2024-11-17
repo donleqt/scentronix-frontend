@@ -1,56 +1,61 @@
 {
-	"basePath": "/api",
-	"consumes": [
-		"application/json"
-	],
-	"definitions": {
-		"Recipe": {
-			"properties": {
-				"id": {
-					"type": "string"
-				},
-				"title": {
-					"type": "string"
-				},
-				"description": {
-					"type": "string"
-				},
-				"yield": {
-					"type": "string"
-				},
-				"imageUrl": {
-					"type": "string"
-				},
-				"steps": {
-					"items": {
-						"properties": {
-							"description": {
-								"type": "string"
-							},
-							"duration": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"description",
-							"duration"
-						],
-						"type": "object"
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Recipe": {
+				"properties": {
+					"id": {
+						"type": "string"
 					},
-					"type": "array"
-				}
-			},
-			"required": [
-				"id",
-				"title",
-				"description",
-				"yield",
-				"imageUrl",
-				"steps"
-			],
-			"type": "object",
-			"additionalProperties": false
-		}
+					"title": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"yield": {
+						"type": "string"
+					},
+					"imageUrl": {
+						"type": "string"
+					},
+					"steps": {
+						"items": {
+							"properties": {
+								"description": {
+									"type": "string"
+								},
+								"duration": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"description",
+								"duration"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"id",
+					"title",
+					"description",
+					"yield",
+					"imageUrl",
+					"steps"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
 	},
 	"info": {
 		"title": "frontend",
@@ -61,21 +66,21 @@
 		"/recipes": {
 			"get": {
 				"operationId": "GetRecipes",
-				"produces": [
-					"application/json"
-				],
 				"responses": {
 					"200": {
-						"description": "A list of recipes",
-						"schema": {
-							"items": {
-								"$ref": "#/definitions/Recipe"
-							},
-							"type": "array"
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Recipe"
+									},
+									"type": "array"
+								}
+							}
 						}
 					}
 				},
-				"description": "Retrieve all recipes",
 				"tags": [
 					"Recipes"
 				],
@@ -84,9 +89,9 @@
 			}
 		}
 	},
-	"produces": [
-		"application/json"
-	],
-	"swagger": "2.0",
-	"securityDefinitions": {}
+	"servers": [
+		{
+			"url": "/api"
+		}
+	]
 }

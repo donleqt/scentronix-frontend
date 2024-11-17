@@ -1,8 +1,7 @@
 import { Get, Route, Tags } from 'tsoa';
 
-import { db } from '@/backend/mocks/db';
-
 import { Recipe } from '../../types/recipes';
+import { db } from '../../mocks/db';
 
 @Route('recipes')
 @Tags('Recipes')

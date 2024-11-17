@@ -4,12 +4,7 @@
   "controllerPathGlobs": ["src/app/(api)/**/*.ts"],
   "spec": {
     "outputDirectory": "src/app/(api)/docs",
-    "specVersion": 2,
-    "basePath": "/api",
-    "info": {
-      "title": "Recipes Shop",
-      "version": "1.0.0",
-      "description": "API documentation for the Recipes Shop project"
-    }
+    "specVersion": 3,
+    "basePath": "/api"
   }
 }
