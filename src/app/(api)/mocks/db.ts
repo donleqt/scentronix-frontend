@@ -11,6 +11,4 @@ const adapter = new JSONFile<Data>('db.json');
 
 const db = new Low<Data>(adapter, { recipes: mockRecipes });
 
-await db.write();
-
 export { db };

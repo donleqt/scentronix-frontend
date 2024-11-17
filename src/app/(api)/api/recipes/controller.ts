@@ -5,13 +5,22 @@ import { db } from '../../mocks/db';
 
 @Route('recipes')
 @Tags('Recipes')
-export class RecipesController {
+class RecipesController {
   /**
    * Retrieve all recipes
-   * @returns {Recipe[]} A list of recipes
    */
   @Get('/')
   public async getRecipes(): Promise<Recipe[]> {
     return db.data.recipes;
   }
+
+  /**
+   * Retrieve a recipe by its ID
+   */
+  @Get('{id}')
+  public async getRecipeById(id: string): Promise<Recipe | undefined> {
+    return db.data.recipes.find((recipe) => recipe.id === id);
+  }
 }
+
+export const recipesController = new RecipesController();

@@ -1,26 +1,31 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { type NextRequest, NextResponse } from 'next/server';
 
-import { db } from '@/backend/mocks/db';
+import { recipesController } from '../controller';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = req.query;
+  const id = (await params).id;
 
-  if (req.method === 'GET') {
-    try {
-      const recipe = await db.data.recipes.find((recipe) => recipe.id === id);
-
-      if (!recipe) {
-        return res.status(404).json({ message: 'Recipe not found' });
-      }
-
-      return res.status(200).json(recipe);
-    } catch (error) {
-      return res.status(500).json({ message: 'Internal server error', error });
+  if (id) {
+    const recipe = await recipesController.getRecipeById(id as string);
+    if (recipe) {
+      return NextResponse.json(recipe);
+    } else {
+      return NextResponse.json(
+        { error: 'Recipe not found' },
+        {
+          status: 404,
+        },
+      );
     }
   } else {
-    return res.status(405).json({ message: 'Method not allowed' });
+    return NextResponse.json(
+      { error: 'Recipe not found' },
+      {
+        status: 404,
+      },
+    );
   }
 }

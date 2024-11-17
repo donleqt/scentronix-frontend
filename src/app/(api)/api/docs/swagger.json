@@ -81,11 +81,44 @@
 						}
 					}
 				},
+				"description": "Retrieve all recipes",
 				"tags": [
 					"Recipes"
 				],
 				"security": [],
 				"parameters": []
+			}
+		},
+		"/recipes/{id}": {
+			"get": {
+				"operationId": "GetRecipeById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Recipe"
+								}
+							}
+						}
+					}
+				},
+				"description": "Retrieve a recipe by its ID",
+				"tags": [
+					"Recipes"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
 			}
 		}
 	},

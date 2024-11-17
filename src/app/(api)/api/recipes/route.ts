@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
 
-import { RecipesController } from './controller';
+import { recipesController } from './controller';
 
 export async function GET() {
-  const controller = new RecipesController();
-  const recipes = await controller.getRecipes();
+  const recipes = await recipesController.getRecipes();
 
   return NextResponse.json(recipes);
 }

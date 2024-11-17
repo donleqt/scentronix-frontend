@@ -3,7 +3,7 @@
   "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/app/(api)/**/*.ts"],
   "spec": {
-    "outputDirectory": "src/app/(api)/docs",
+    "outputDirectory": "src/app/(api)/api/docs",
     "specVersion": 3,
     "basePath": "/api"
   }
