@@ -1,4 +1,5 @@
-import { Box, Button, Container, Toolbar } from '@mui/material';
+import { Box, Container, Link, Toolbar } from '@mui/material';
+import NextLink from 'next/link';
 
 type HeaderSubMenuProps = {
   marginLeft: number;
@@ -19,9 +20,14 @@ export function HeaderSubMenu({ links, marginLeft }: HeaderSubMenuProps) {
         <Toolbar>
           <Box ml={`${marginLeft}px`} gap={3} display="flex">
             {links.map((link) => (
-              <Button key={link.label} color="inherit" href="/">
+              <Link
+                href={link.route}
+                component={NextLink}
+                key={link.label}
+                color="inherit"
+              >
                 {link.label}
-              </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>

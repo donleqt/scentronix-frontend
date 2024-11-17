@@ -21,7 +21,6 @@ export const HeaderLink = ({ label, route, isActive }: HeaderLinkProps) => {
         py: 1,
         borderBottom: isActive ? '2px solid' : 'none',
         borderBottomColor: theme.palette.sweethBrown.main,
-        textDecoration: 'none',
       })}
     >
       {label}
