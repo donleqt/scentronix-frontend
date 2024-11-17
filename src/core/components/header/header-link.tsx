@@ -15,12 +15,21 @@ export const HeaderLink = ({ label, route, isActive }: HeaderLinkProps) => {
       color="inherit"
       component={NextLink}
       href={route}
-      underline="none"
+      underline="hover"
       sx={(theme) => ({
         px: 2,
         py: 1,
-        borderBottom: isActive ? '2px solid' : 'none',
-        borderBottomColor: theme.palette.sweethBrown.main,
+        fontWeight: 500,
+        textDecoration: 'underline',
+        textUnderlineOffset: theme.spacing(1.5),
+        textDecorationThickness: '2px',
+        textDecorationColor: isActive
+          ? theme.palette.sweethBrown.main
+          : 'transparent',
+        '&:hover': {
+          textDecorationColor: theme.palette.sweethBrown.dark,
+          textDecorationThickness: '2px',
+        },
       })}
     >
       {label}
