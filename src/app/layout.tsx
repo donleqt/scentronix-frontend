@@ -8,7 +8,7 @@ import './globals.css';
 
 import { Header } from '@/core/components/header/header';
 import { theme } from '@/libs/mui/theme';
-import { AppBreadcrumbs } from '@/core/components/app-breadcrumbs';
+import { Breadcrumbs } from '@/core/components/breadcrumbs/breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -35,7 +35,7 @@ export default function RootLayout({
             <CssBaseline />
             <Header />
             <Container>
-              <AppBreadcrumbs />
+              <Breadcrumbs />
             </Container>
             {children}
           </ThemeProvider>

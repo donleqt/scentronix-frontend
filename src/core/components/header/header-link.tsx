@@ -19,7 +19,7 @@ export const HeaderLink = ({ label, route, isActive }: HeaderLinkProps) => {
       sx={(theme) => ({
         px: 2,
         py: 1,
-        fontWeight: 500,
+        fontWeight: 400,
         textDecoration: 'underline',
         textUnderlineOffset: theme.spacing(1.5),
         textDecorationThickness: '2px',
