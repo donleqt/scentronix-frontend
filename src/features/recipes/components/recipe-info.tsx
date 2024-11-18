@@ -3,7 +3,7 @@ import { Box, Stack, Typography } from '@mui/material';
 
 export function RecipeInfo() {
   return (
-    <Stack direction="row" alignItems="start" spacing={3} mt={2} mb={3}>
+    <Stack direction="row" alignItems="start" spacing={3} my={4}>
       <AccessTime sx={{ fontSize: 40 }} />
 
       <Box>

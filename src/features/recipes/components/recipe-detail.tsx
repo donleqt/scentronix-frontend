@@ -1,5 +1,6 @@
 import { Box, Button, Grid2, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
+import { Add, Cake, Print } from '@mui/icons-material';
 
 import { Schema } from '@/libs/api/schema';
 
@@ -26,21 +27,34 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
 
         <RecipeInfo />
 
-        {/* Yield */}
-        <Box mb={2}>
-          <Typography variant="subtitle2">YIELD</Typography>
-          <Typography>{recipe.yield}</Typography>
-        </Box>
+        <Box display="flex" alignItems="flex-start" mt={4}>
+          {/* Yield */}
+          <Box mb={2} display="flex">
+            <Typography mr={2}>
+              <Cake fontSize="large" />
+            </Typography>
 
-        {/* Buttons */}
-        <Stack direction="row" justifyContent="flex-end" spacing={2}>
-          <Button variant="outlined" color="secondary">
-            Save Recipe
-          </Button>
-          <Button variant="outlined" color="secondary">
-            Print
-          </Button>
-        </Stack>
+            <Box display="flex" flexDirection="column">
+              <Typography variant="subtitle2">YIELD</Typography>
+              <Typography>{recipe.yield}</Typography>
+            </Box>
+          </Box>
+
+          {/* Buttons */}
+          <Stack
+            ml="auto"
+            direction="row"
+            justifyContent="flex-end"
+            spacing={2}
+          >
+            <Button variant="outlined" startIcon={<Add />}>
+              Save Recipe
+            </Button>
+            <Button variant="outlined" startIcon={<Print />}>
+              Print
+            </Button>
+          </Stack>
+        </Box>
       </Grid2>
 
       {/* Right Column */}

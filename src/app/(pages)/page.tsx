@@ -9,9 +9,7 @@ export default function HomePage() {
           Welcome to the Home Page
         </Typography>
         <NextLink href="/recipes" passHref>
-          <Button variant="contained" color="secondary">
-            Go to Recipes
-          </Button>
+          <Button variant="contained">Go to Recipes</Button>
         </NextLink>
       </Box>
     </Container>

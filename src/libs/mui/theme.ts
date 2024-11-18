@@ -9,7 +9,12 @@ export const theme = createTheme({
   components: {
     ...customComponents,
   },
-  palette: paletteColors,
+  palette: {
+    ...paletteColors,
+    primary: {
+      main: paletteColors.sweethBrown.main,
+    },
+  },
   typography: {
     fontFamily: 'var(--font-roboto)',
   },

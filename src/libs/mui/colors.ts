@@ -1,6 +1,4 @@
-enum Colors {
-  primary = '#1976d2',
-  secondary = '#dc004e',
+export enum Colors {
   cultured = '#f8f5f0',
   sweethBrown = '#a3373c',
 }
