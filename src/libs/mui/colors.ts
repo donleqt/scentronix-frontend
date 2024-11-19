@@ -1,5 +1,5 @@
 export enum Colors {
-  cultured = '#f8f5f0',
+  cultured = '#f7d6a0',
   sweethBrown = '#a3373c',
 }
 

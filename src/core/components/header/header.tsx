@@ -13,14 +13,31 @@ export const Header = () => {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: 'white', color: 'MenuText', boxShadow: 'none' }}
+      sx={{
+        backgroundColor: { xs: 'cultured.main', md: 'white' },
+        color: 'MenuText',
+        boxShadow: { xs: 4, md: 0 },
+      }}
     >
       <NavBackground />
       <Container>
-        <Box display="flex" alignItems="flex-start" mt={1}>
+        <Box
+          py={1}
+          sx={{
+            py: 1,
+            display: 'flex',
+            alignItems: { xs: 'center', md: 'flex-start' },
+          }}
+        >
           <Box position="relative" zIndex={1}>
             <NextLink href={APP_ROUTES.HOME} passHref>
-              <Image src={logo} alt="logo" width={LOGO_SIZE} />
+              <Image
+                src={logo}
+                alt="logo"
+                width={LOGO_SIZE}
+                style={{ width: '100%', maxWidth: LOGO_SIZE, height: 'auto' }}
+                sizes={`(max-width: 960px) ${LOGO_SIZE / 2}px, ${LOGO_SIZE}px`}
+              />
             </NextLink>
           </Box>
 

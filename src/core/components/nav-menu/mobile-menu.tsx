@@ -37,6 +37,7 @@ export function MobileMenu() {
         color="inherit"
         aria-label="menu"
         onClick={handleDrawerToggle}
+        sx={{ width: 'fit-content', ml: 'auto' }}
       >
         <MenuIcon />
       </IconButton>
@@ -44,8 +45,8 @@ export function MobileMenu() {
         <Box
           sx={{ width: 250 }}
           role="presentation"
-          onClick={handleDrawerToggle}
-          onKeyDown={handleDrawerToggle}
+          onClick={(event) => event.stopPropagation()}
+          onKeyDown={(event) => event.stopPropagation()}
         >
           <List>
             {HEADER_LINKS.map((link) => (
@@ -53,7 +54,10 @@ export function MobileMenu() {
                 <ListItem
                   component={NextLink}
                   href={link.route}
-                  onClick={() => handleItemClick(link.label)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    handleItemClick(link.label);
+                  }}
                 >
                   <ListItemText primary={link.label} />
                   {link.children ? (
