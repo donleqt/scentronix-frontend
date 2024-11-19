@@ -17,6 +17,12 @@ export function SubMenu({ links }: SubMenuMenuProps) {
           component={NextLink}
           key={link.label}
           color="inherit"
+          sx={{
+            '&:hover': {
+              color: 'primary.main',
+              textDecoration: 'underline',
+            },
+          }}
         >
           {link.label}
         </Link>
