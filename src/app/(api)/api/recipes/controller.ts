@@ -11,6 +11,7 @@ class RecipesController {
    */
   @Get('/')
   public async getRecipes(): Promise<Recipe[]> {
+    await db.read();
     return db.data.recipes;
   }
 
@@ -19,6 +20,7 @@ class RecipesController {
    */
   @Get('{id}')
   public async getRecipeById(id: string): Promise<Recipe | undefined> {
+    await db.read();
     return db.data.recipes.find((recipe) => recipe.id === id);
   }
 }
