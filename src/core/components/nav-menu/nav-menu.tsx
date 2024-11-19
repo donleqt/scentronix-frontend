@@ -108,7 +108,7 @@ export function NavBackground() {
         width: '100vw',
         marginLeft: '-50vw',
         left: '50%',
-        top: 70,
+        top: 78,
         height: 60,
         zIndex: 0,
         [theme.breakpoints.down('md')]: {

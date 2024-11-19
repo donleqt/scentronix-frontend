@@ -17,15 +17,10 @@ export const Header = () => {
     >
       <NavBackground />
       <Container>
-        <Box display="flex" alignItems="flex-start">
+        <Box display="flex" alignItems="flex-start" mt={1}>
           <Box position="relative" zIndex={1}>
             <NextLink href={APP_ROUTES.HOME} passHref>
-              <Image
-                src={logo}
-                alt="logo"
-                width={LOGO_SIZE}
-                height={LOGO_SIZE}
-              />
+              <Image src={logo} alt="logo" width={LOGO_SIZE} />
             </NextLink>
           </Box>
 
