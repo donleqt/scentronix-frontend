@@ -57,14 +57,22 @@ export function MobileMenu() {
                   onClick={(event) => {
                     event.stopPropagation();
                     handleItemClick(link.label);
+
+                    const isExpandIcon = (
+                      event.target as HTMLElement
+                    ).classList.contains('expand-icon');
+
+                    if (!isExpandIcon) {
+                      handleDrawerToggle();
+                    }
                   }}
                 >
                   <ListItemText primary={link.label} />
                   {link.children ? (
                     openItems[link.label] ? (
-                      <ExpandLess />
+                      <ExpandLess className="expand-icon" />
                     ) : (
-                      <ExpandMore />
+                      <ExpandMore className="expand-icon" />
                     )
                   ) : null}
                 </ListItem>
@@ -81,6 +89,7 @@ export function MobileMenu() {
                           component={NextLink}
                           href={child.route}
                           sx={{ pl: 4 }}
+                          onClick={handleDrawerToggle}
                         >
                           <ListItemText primary={child.label} />
                         </ListItem>

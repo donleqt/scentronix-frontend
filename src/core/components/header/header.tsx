@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 
 import logo from '@/assets/images/logo.png';
 import { APP_ROUTES } from '@/core/constants/routes';
+import { Colors } from '@/libs/mui/colors';
 
 import { NavBackground, NavMenu } from '../nav-menu/nav-menu';
 
@@ -14,7 +15,7 @@ export const Header = () => {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: { xs: 'cultured.main', md: 'white' },
+        backgroundColor: { xs: Colors.cultured, md: 'white' },
         color: 'MenuText',
         boxShadow: { xs: 4, md: 0 },
       }}
