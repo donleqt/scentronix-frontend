@@ -6,6 +6,6 @@ export interface Recipe {
   imageUrl: string;
   steps: {
     duration: string;
-    description: string;
+    name: string;
   }[];
 }

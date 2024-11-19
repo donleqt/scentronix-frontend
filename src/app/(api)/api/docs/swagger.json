@@ -27,7 +27,7 @@
 					"steps": {
 						"items": {
 							"properties": {
-								"description": {
+								"name": {
 									"type": "string"
 								},
 								"duration": {
@@ -35,7 +35,7 @@
 								}
 							},
 							"required": [
-								"description",
+								"name",
 								"duration"
 							],
 							"type": "object"

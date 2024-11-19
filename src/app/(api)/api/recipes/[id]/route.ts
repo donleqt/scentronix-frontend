@@ -9,13 +9,13 @@ export async function GET(
   const { id } = await params;
 
   if (!id) {
-    return NextResponse.json({ status: 404 });
+    return NextResponse.json(null, { status: 404 });
   }
 
   const recipe = await recipesController.getRecipeById(id);
 
   if (!recipe) {
-    return NextResponse.json({ status: 404 });
+    return NextResponse.json(null, { status: 404 });
   }
 
   return NextResponse.json(recipe);

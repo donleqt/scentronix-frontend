@@ -49,7 +49,7 @@ export interface components {
       yield: string;
       imageUrl: string;
       steps: {
-        description: string;
+        name: string;
         duration: string;
       }[];
     };

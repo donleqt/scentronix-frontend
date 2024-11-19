@@ -1,23 +1,26 @@
 import { AccessTime } from '@mui/icons-material';
 import { Box, Stack, Typography } from '@mui/material';
 
-export function RecipeInfo() {
+type RecipeInfoProps = {
+  steps: {
+    duration: string;
+    name: string;
+  }[];
+};
+
+export function RecipeInfo({ steps }: RecipeInfoProps) {
   return (
     <Stack direction="row" alignItems="start" spacing={3} my={4}>
       <AccessTime sx={{ fontSize: 40 }} />
 
-      <Box>
-        <Typography variant="subtitle2">PREP</Typography>
-        <Typography>10 mins</Typography>
-      </Box>
-      <Box>
-        <Typography variant="subtitle2">BAKE</Typography>
-        <Typography>1 hr to 1 hr 15 mins</Typography>
-      </Box>
-      <Box>
-        <Typography variant="subtitle2">TOTAL</Typography>
-        <Typography>1 hr 10 mins</Typography>
-      </Box>
+      {steps.map((step, index) => (
+        <Box key={index}>
+          <Typography variant="subtitle2" textTransform="uppercase">
+            {step.name}
+          </Typography>
+          <Typography>{step.duration}</Typography>
+        </Box>
+      ))}
     </Stack>
   );
 }

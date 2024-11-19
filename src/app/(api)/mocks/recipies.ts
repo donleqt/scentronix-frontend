@@ -9,12 +9,9 @@ export const generateMockRecipes = (count: number): Recipe[] => {
     description: faker.lorem.paragraphs(2),
     yield: `${faker.number.int({ min: 1, max: 10 })} servings`,
     imageUrl: faker.image.url({ width: 640, height: 480 }),
-    steps: Array.from(
-      { length: faker.number.int({ min: 3, max: 10 }) },
-      () => ({
-        duration: `${faker.number.int({ min: 5, max: 60 })} minutes`,
-        description: faker.lorem.sentences(2),
-      }),
-    ),
+    steps: Array.from({ length: faker.number.int({ min: 3, max: 3 }) }, () => ({
+      duration: `${faker.number.int({ min: 5, max: 60 })} minutes`,
+      name: faker.lorem.words(1),
+    })),
   }));
 };

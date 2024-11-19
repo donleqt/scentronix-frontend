@@ -25,7 +25,7 @@ export function RecipeDetail({ recipe }: RecipeDetailProps) {
           {recipe.description}
         </Typography>
 
-        <RecipeInfo />
+        <RecipeInfo steps={recipe.steps} />
 
         <Box display="flex" alignItems="flex-start" mt={4}>
           {/* Yield */}
