@@ -6,7 +6,7 @@
 - OpenAPI Typescript to api types for Frontend from swagger.json
 - Tsoa to generate API documentation (swagger.json) based on decorator
 - lowdb and faker for mock data
-- husky, commit lint, git conventional commit, release-it: to lint, generate changelogs, define release version
+- husky, lint-staged, commit lint, git conventional commit, release-it: to lint, generate changelogs, define release version
 
 Thing I would like to do if having more time:
 - Apply Jest and React Testing Library for unit tests
