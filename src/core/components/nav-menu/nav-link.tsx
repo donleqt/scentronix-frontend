@@ -3,13 +3,13 @@
 import { Link } from '@mui/material';
 import NextLink from 'next/link';
 
-type HeaderLinkProps = {
+type NavLinkProps = {
   isActive: boolean;
   label: string;
   route: string;
 };
 
-export const HeaderLink = ({ label, route, isActive }: HeaderLinkProps) => {
+export const NavLink = ({ label, route, isActive }: NavLinkProps) => {
   return (
     <Link
       color="inherit"

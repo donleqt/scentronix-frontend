@@ -1,17 +1,20 @@
 'use client';
 
-import { Box } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { HEADER_LINKS } from '@/core/constants/ui';
 import { RouteLink } from '@/core/types/routing';
 
-import { HeaderLink } from './header-link';
+import { NavLink } from './nav-link';
 import { SubMenu } from './sub-menu';
 import { isActiveLink } from './is-active-link';
+import { MobileMenu } from './mobile-menu';
 
 export function NavMenu() {
+  const theme = useTheme();
+  const isMdScreen = useMediaQuery(theme.breakpoints.down('md'));
   const hideTimeout = useRef<NodeJS.Timeout>();
   const pathname = usePathname();
   const [subMenuLinks, setSubMenuLinks] = useState<RouteLink[]>([]);
@@ -54,38 +57,44 @@ export function NavMenu() {
 
   return (
     <Box display="flex" flexDirection="column" ml={2} width="100%">
-      <Box
-        display="flex"
-        gap={3}
-        flexGrow={1}
-        mt={3}
-        mx={-2}
-        alignItems="center"
-      >
-        {HEADER_LINKS.map((link) => (
+      {isMdScreen ? (
+        <MobileMenu />
+      ) : (
+        <>
           <Box
-            key={link.label}
-            onMouseEnter={() => handleMouseEnter(link.children ?? [])}
-            onMouseLeave={handleMouseLeave}
+            display="flex"
+            gap={3}
+            flexGrow={1}
+            mt={3}
+            mx={-2}
+            alignItems="center"
           >
-            <HeaderLink
-              label={link.label}
-              route={link.route}
-              isActive={activeLink?.route === link.route}
-            />
+            {HEADER_LINKS.map((link) => (
+              <Box
+                key={link.label}
+                onMouseEnter={() => handleMouseEnter(link.children ?? [])}
+                onMouseLeave={handleMouseLeave}
+              >
+                <NavLink
+                  label={link.label}
+                  route={link.route}
+                  isActive={activeLink?.route === link.route}
+                />
+              </Box>
+            ))}
           </Box>
-        ))}
-      </Box>
 
-      <Box
-        onMouseEnter={handleSubMenuMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        position="relative"
-      >
-        <Box position="relative" zIndex={1}>
-          <SubMenu links={subMenuLinks} />
-        </Box>
-      </Box>
+          <Box
+            onMouseEnter={handleSubMenuMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            position="relative"
+          >
+            <Box position="relative" zIndex={1}>
+              <SubMenu links={subMenuLinks} />
+            </Box>
+          </Box>
+        </>
+      )}
     </Box>
   );
 }
@@ -102,6 +111,9 @@ export function NavBackground() {
         top: 70,
         height: 60,
         zIndex: 0,
+        [theme.breakpoints.down('md')]: {
+          display: 'none',
+        },
       })}
     />
   );

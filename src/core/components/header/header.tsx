@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import logo from '@/assets/images/logo.png';
 import { APP_ROUTES } from '@/core/constants/routes';
 
-import { NavBackground, NavMenu } from './nav-menu';
+import { NavBackground, NavMenu } from '../nav-menu/nav-menu';
 
 const LOGO_SIZE = 150;
 
