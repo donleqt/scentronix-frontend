@@ -1,6 +1,6 @@
-## Project Highlight
+## Frontend Project Highlight
 
-Online preview URL: https://scentronix-frontend-phi.vercel.app
+Online preview URL: https://scentronix-frontend-phi.vercel.app/recipes/5fc03b68-b40a-4a0b-a786-086de43dc1d3
 
 - MUI with customization
 - ESlint
@@ -16,6 +16,10 @@ Thing I would like to do if having more time:
 - i18n to demostrate multi-languages integration
 
 It's been a long time I haven't worked with Nextjs and MUI so it takes me a decent amount of time to read the documentation to implement this project.
+
+## Backend Project Highlight
+I put it in the same project under the folder backend. Please find the implementation in the file `find-server.ts`
+This code used jest and axios-mock-adapter for unit tests
 
 ## Getting Started
 
