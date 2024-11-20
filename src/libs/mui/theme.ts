@@ -12,7 +12,7 @@ export const theme = createTheme({
   palette: {
     ...paletteColors,
     primary: {
-      main: paletteColors.sweethBrown.main,
+      main: paletteColors.sweetBrown.main,
     },
   },
   typography: {

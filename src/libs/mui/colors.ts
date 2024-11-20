@@ -1,9 +1,11 @@
+import { generatePaletteColors } from './utils/generatePaletteColors';
+
 export enum Colors {
   cultured = '#f7d6a0',
-  sweethBrown = '#a3373c',
+  sweetBrown = '#a3373c',
 }
 
-type CustomColors = keyof typeof Colors;
+export type CustomColors = keyof typeof Colors;
 
 declare module '@mui/material/styles' {
   type CustomPalette = {
@@ -21,11 +23,4 @@ declare module '@mui/material/styles' {
   interface PaletteOptions extends CustomPaletteOptions {}
 }
 
-export const paletteColors = Object.keys(Colors).reduce(
-  (acc, key) => {
-    acc[key as CustomColors] = { main: Colors[key as CustomColors] };
-
-    return acc;
-  },
-  {} as Record<keyof typeof Colors, { main: string }>,
-);
+export const paletteColors = generatePaletteColors(Colors);

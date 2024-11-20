@@ -24,10 +24,10 @@ export const NavLink = ({ label, route, isActive }: NavLinkProps) => {
         textUnderlineOffset: theme.spacing(1.5),
         textDecorationThickness: '2px',
         textDecorationColor: isActive
-          ? theme.palette.sweethBrown.main
+          ? theme.palette.sweetBrown.main
           : 'transparent',
         '&:hover': {
-          textDecorationColor: theme.palette.sweethBrown.dark,
+          textDecorationColor: theme.palette.sweetBrown.dark,
           textDecorationThickness: '2px',
         },
       })}
