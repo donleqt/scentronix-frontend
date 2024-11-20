@@ -1,5 +1,10 @@
 
 
+## <small>0.2.2 (2024-11-20)</small>
+
+* refactor: generate color utils ([42042e3](https://github.com/donleqt/scentronix-frontend/commit/42042e3))
+* refactor: move api to features folder ([35707b3](https://github.com/donleqt/scentronix-frontend/commit/35707b3))
+
 ## <small>0.2.1 (2024-11-20)</small>
 
 * refactor: organize theme folder ([fab5cac](https://github.com/donleqt/scentronix-frontend/commit/fab5cac))
