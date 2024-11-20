@@ -1,16 +1,12 @@
 import { Container } from '@mui/material';
 
-import { fetchClient } from '@/libs/api/fetch-client';
 import { Breadcrumbs } from '@/core/components/breadcrumbs/breadcrumbs';
+import { getAllRecipes } from '@/features/recipes/api/recipes';
 
 export const dynamic = 'force-dynamic';
 
-async function fetchRecipes() {
-  return fetchClient.GET('/recipes');
-}
-
 export default async function RecipiesPage() {
-  const { data: recipes } = await fetchRecipes();
+  const { data: recipes } = await getAllRecipes();
 
   if (!recipes) {
     return <div>Error</div>;

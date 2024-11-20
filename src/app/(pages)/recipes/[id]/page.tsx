@@ -2,18 +2,8 @@ import { Container } from '@mui/material';
 import { notFound } from 'next/navigation';
 
 import { RecipeDetail } from '@/features/recipes/components/recipe-detail';
-import { fetchClient } from '@/libs/api/fetch-client';
 import { Breadcrumbs } from '@/core/components/breadcrumbs/breadcrumbs';
-
-async function getRecipe(id: string) {
-  const { data: recipe } = await fetchClient.GET('/recipes/{id}', {
-    params: { path: { id } },
-  });
-
-  if (!recipe) notFound();
-
-  return recipe;
-}
+import { getRecipeById } from '@/features/recipes/api/recipes';
 
 export async function generateMetadata({
   params,
@@ -21,10 +11,10 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const recipe = await getRecipe(id);
+  const recipe = await getRecipeById(id);
 
   return {
-    title: recipe.title,
+    title: recipe?.title,
   };
 }
 
@@ -36,7 +26,9 @@ export default async function RecipeDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const recipe = await getRecipe(id);
+  const recipe = await getRecipeById(id);
+
+  if (!recipe) notFound();
 
   return (
     <Container>
