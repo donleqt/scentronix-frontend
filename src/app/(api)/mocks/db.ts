@@ -10,7 +10,7 @@ type Data = {
   recipes: Recipe[];
 };
 
-const adapter = new JSONFile<Data>('db.json');
+const adapter = new JSONFile<Data>('src/app/(api)/mocks/db.json');
 
 export const db = new Low<Data>(adapter, {
   recipes: [],
@@ -19,7 +19,7 @@ export const db = new Low<Data>(adapter, {
 async function initializeDB() {
   await db.read();
 
-  if (!existsSync('db.json') || !db.data) {
+  if (!existsSync('src/app/(api)/mocks/db.json') || !db.data) {
     db.data = { recipes: generateMockRecipes(10) };
 
     await db.write();
