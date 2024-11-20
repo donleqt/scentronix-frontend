@@ -1,10 +1,8 @@
-import { existsSync } from 'fs';
-
 import { Low } from 'lowdb';
 import { JSONFile } from 'lowdb/node';
 
-import { generateMockRecipes } from './recipies';
 import { Recipe } from '../types/recipes';
+import jsonDb from './db.json';
 
 type Data = {
   recipes: Recipe[];
@@ -12,18 +10,4 @@ type Data = {
 
 const adapter = new JSONFile<Data>('src/app/(api)/mocks/db.json');
 
-export const db = new Low<Data>(adapter, {
-  recipes: [],
-});
-
-async function initializeDB() {
-  await db.read();
-
-  if (!existsSync('src/app/(api)/mocks/db.json') || !db.data) {
-    db.data = { recipes: generateMockRecipes(10) };
-
-    await db.write();
-  }
-}
-
-initializeDB();
+export const db = new Low<Data>(adapter, jsonDb);
