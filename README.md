@@ -1,5 +1,7 @@
 ## Project Highlight
 
+Online preview URL: https://scentronix-frontend-phi.vercel.app
+
 - MUI with customization
 - ESlint
 - Typescript
