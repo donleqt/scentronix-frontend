@@ -67,7 +67,12 @@ export function MobileMenu() {
                     }
                   }}
                 >
-                  <ListItemText primary={link.label} />
+                  <ListItemText
+                    primary={link.label}
+                    sx={{
+                      color: 'MenuText',
+                    }}
+                  />
                   {link.children ? (
                     openItems[link.label] ? (
                       <ExpandLess className="expand-icon" />
@@ -91,7 +96,12 @@ export function MobileMenu() {
                           sx={{ pl: 4 }}
                           onClick={handleDrawerToggle}
                         >
-                          <ListItemText primary={child.label} />
+                          <ListItemText
+                            primary={child.label}
+                            sx={{
+                              color: 'MenuText',
+                            }}
+                          />
                         </ListItem>
                       ))}
                     </List>
