@@ -1,5 +1,10 @@
 
 
+## <small>0.2.1 (2024-11-20)</small>
+
+* refactor: organize theme folder ([fab5cac](https://github.com/donleqt/scentronix-frontend/commit/fab5cac))
+* chore: fix readme ([065b9a7](https://github.com/donleqt/scentronix-frontend/commit/065b9a7))
+
 ## 0.2.0 (2024-11-20)
 
 * chore:  eslint import sort adjustment ([1f5716a](https://github.com/donleqt/scentronix-frontend/commit/1f5716a))
