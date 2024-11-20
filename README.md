@@ -1,21 +1,21 @@
 ## Frontend Project Highlight
 
-Online preview URL: https://scentronix-frontend-phi.vercel.app/recipes/5fc03b68-b40a-4a0b-a786-086de43dc1d3
+**Online Preview:** https://scentronix-frontend-phi.vercel.app/recipes/5fc03b68-b40a-4a0b-a786-086de43dc1d3
 
-- MUI with customization
-- ESlint
-- Typescript
-- OpenAPI Typescript to api types for Frontend from swagger.json
-- Tsoa to generate API documentation (swagger.json) based on decorator
-- lowdb and faker for mock data
-- husky, lint-staged, commit lint, git conventional commit, release-it: to lint, generate changelogs, define release version
+* MUI with customisation
+* ESLint
+* TypeScript
+* OpenAPI TypeScript to generate frontend API types from swagger.json
+* Tsoa to generate API documentation (swagger.json) based on decorators
+* lowdb and Faker for mock data
+* husky, lint-staged, commit lint, git conventional commit, release-it for linting, generating changelogs, and defining release versions
 
-Thing I would like to do if having more time:
+Thing I would like to do if had more time:
 - Apply Jest and React Testing Library for unit tests
 - More customization for the layout to have a look and feel like the mockup
 - i18n to demostrate multi-languages integration
 
-It's been a long time I haven't worked with Nextjs and MUI so it takes me a decent amount of time to read the documentation to implement this project.
+It had been a long time since I worked with Next.js and MUI, so it took a decent amount of time to review the documentation to complete this project.
 
 ## Backend Project Highlight
 I put it in the same project under the folder backend. Please find the implementation in the file `find-server.ts`
