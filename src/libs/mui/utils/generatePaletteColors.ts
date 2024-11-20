@@ -1,11 +1,11 @@
-import { Colors, CustomColors } from '../colors';
-
-export const generatePaletteColors = (colors: typeof Colors) => {
+export const generatePaletteColors = <T extends Record<string, string>>(
+  colors: T,
+) => {
   return Object.keys(colors).reduce(
     (acc, key) => {
-      acc[key as CustomColors] = { main: colors[key as CustomColors] };
+      acc[key as keyof T] = { main: colors[key as keyof T] };
       return acc;
     },
-    {} as Record<keyof typeof Colors, { main: string }>,
+    {} as Record<keyof T, { main: string }>,
   );
 };
