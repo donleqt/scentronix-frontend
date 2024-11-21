@@ -1,4 +1,5 @@
-import { Container } from '@mui/material';
+import { Container, Link } from '@mui/material';
+import NextLink from 'next/link';
 
 import { Breadcrumbs } from '@/core/components/breadcrumbs/breadcrumbs';
 import { getAllRecipes } from '@/features/recipes/api/recipes';
@@ -19,7 +20,9 @@ export default async function RecipiesPage() {
       <ul>
         {recipes.map((recipe) => (
           <li key={recipe.id}>
-            <a href={`/recipes/${recipe.id}`}>{recipe.title}</a>
+            <Link component={NextLink} href={`/recipes/${recipe.id}`}>
+              {recipe.title}
+            </Link>
           </li>
         ))}
       </ul>
