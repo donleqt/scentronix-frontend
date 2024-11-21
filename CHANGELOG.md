@@ -1,5 +1,9 @@
 
 
+## <small>0.2.3 (2024-11-21)</small>
+
+* fix: recipies page links ([443e190](https://github.com/donleqt/scentronix-frontend/commit/443e190))
+
 ## <small>0.2.2 (2024-11-20)</small>
 
 * refactor: generate color utils ([42042e3](https://github.com/donleqt/scentronix-frontend/commit/42042e3))
